@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Converta vídeos do YouTube em MP3 facilmente. Aplicativo web responsivo para Android.">
+    <meta name="theme-color" content="#FF0000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="YouTube para MP3">
+    
+    <title>YouTube para MP3 - Conversor Online</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="app-title">▶ YouTube para MP3</h1>
+                <p class="app-subtitle">Converta seus vídeos em áudio</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Aviso Legal -->
+            <div class="legal-notice">
+                <strong>⚠️ Aviso Legal:</strong> Baixe apenas conteúdos que você tenha direito de usar (próprios, livres de direitos ou com licença adequada). Respeite os Termos de Serviço do YouTube.
+            </div>
+
+            <!-- Seção de Entrada -->
+            <section class="input-section">
+                <div class="form-group">
+                    <label for="urlInput">Cole o link do YouTube:</label>
+                    <input 
+                        type="text" 
+                        id="urlInput" 
+                        class="url-input" 
+                        placeholder="https://www.youtube.com/watch?v=..."
+                        autocomplete="off"
+                    >
+                    <small class="helper-text">Exemplos: youtube.com/watch?v=... ou youtu.be/...</small>
+                </div>
+
+                <button id="convertBtn" class="btn btn-primary">
+                    <span class="btn-text">Converter para MP3</span>
+                </button>
+            </section>
+
+            <!-- Seção de Progresso -->
+            <section id="progressSection" class="progress-section hidden">
+                <div class="progress-container">
+                    <p class="status-text" id="statusText">Processando vídeo...</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-percent" id="progressPercent">0%</p>
+                </div>
+            </section>
+
+            <!-- Seção de Downloads -->
+            <section class="downloads-section">
+                <h2 class="section-title">📥 Downloads Concluídos</h2>
+                <div id="downloadsList" class="downloads-list">
+                    <p class="empty-state">Nenhum arquivo baixado ainda</p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 YouTube para MP3 | Desenvolvido com ❤️ para Android</p>
+        </footer>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="confirmModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Confirmar exclusão</h3>
+            <p>Tem certeza que deseja apagar este arquivo?</p>
+            <div class="modal-buttons">
+                <button id="cancelBtn" class="btn btn-secondary">Cancelar</button>
+                <button id="confirmDeleteBtn" class="btn btn-danger">Apagar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>
